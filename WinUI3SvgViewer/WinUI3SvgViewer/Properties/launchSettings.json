@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "WinUI3SvgViewer (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "WinUI3SvgViewer (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
