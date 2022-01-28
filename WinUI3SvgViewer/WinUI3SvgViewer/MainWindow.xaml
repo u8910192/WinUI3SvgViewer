@@ -1,13 +1,67 @@
-﻿<Window
-    x:Class="WinUI3SvgViewer.MainWindow"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:WinUI3SvgViewer"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+﻿<Window x:Class="WinUI3SvgViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="using:WinUI3SvgViewer"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
-    </StackPanel>
+    <Grid Background="Gray">
+
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>-->
+
+        <!--<ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="optionsPanel"
+                        MinWidth="100"
+                        Margin="5"
+                        Orientation="Vertical">
+
+                <Button HorizontalAlignment="Stretch"
+                        Click="NewDocument_Click"
+                        Content="New Document"
+                        Visibility="Collapsed" />
+
+                <TextBlock Visibility="Collapsed">Shape:</TextBlock>
+                <ComboBox FontSize="15"
+                          ItemsSource="{Binding ElementName=control, Path=Shapes}"
+                          SelectedItem="{Binding CurrentShapeType, ElementName=control, Mode=TwoWay}"
+                          SelectionChanged="SettingsCombo_SelectionChanged"
+                          Visibility="Collapsed" />
+
+                <Button HorizontalAlignment="Stretch"
+                        Click="LoadSampleFile_Click"
+                        Content="Load Sample File"
+                        Visibility="Collapsed" />
+
+                <Button HorizontalAlignment="Stretch"
+                        Click="Clear_Clicked"
+                        Content="Clear"
+                        Visibility="Collapsed" />
+
+                <TextBlock Visibility="Collapsed">Effect:</TextBlock>
+                <ComboBox FontSize="15"
+                          ItemsSource="{Binding ElementName=control, Path=Effects}"
+                          SelectedItem="{Binding CurrentEffectType, ElementName=control, Mode=TwoWay}"
+                          SelectionChanged="SettingsCombo_SelectionChanged"
+                          Visibility="Collapsed" />
+
+                <Button HorizontalAlignment="Stretch"
+                        Click="Save_Clicked"
+                        Content="Save XML"
+                        Visibility="Collapsed" />
+            </StackPanel>
+        </ScrollViewer>-->
+
+        <canvas:CanvasControl x:Name="canvasControl"
+                              ClearColor="Gray"
+                              CreateResources="canvasControl_CreateResources"
+                              Draw="canvasControl_Draw"
+                              PointerMoved="canvasControl_PointerMoved"
+                              PointerPressed="canvasControl_PointerPressed"
+                              PointerReleased="canvasControl_PointerReleased" />
+    </Grid>
 </Window>
